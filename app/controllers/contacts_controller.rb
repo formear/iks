@@ -9,6 +9,7 @@ class ContactsController < ApplicationController
     @contact = Contact.new(secure_params)
 
     if @contact.valid?
+      @contact.update_spreadsheet
       flash[:notice] = "Received request from #{params[:contact][:name]}"
       redirect_to root_path
     else
