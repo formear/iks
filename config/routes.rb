@@ -3,13 +3,16 @@ Iks::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'welcome#home'
-
-  resources :contacts, only: [:new, :create]
 
   TeadsController.action_methods.each do |action|
     get "/zonro.teads/#{action}", to: "teads##{action}", as: "#{action}_tead"
   end
+
+  resources :contacts, only: [:new, :create]
+  resources :visitors, only: [:new, :create]
+
+  root to: 'visitors#new'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

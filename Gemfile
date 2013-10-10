@@ -41,3 +41,9 @@ group :development do
   # suppresses distracting messages in the log
   gem 'quiet_assets'
 end
+
+group :production do
+  gem 'pg'
+  gem 'thin'
+  gem 'rails_12factor'
+end
